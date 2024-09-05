@@ -1,0 +1,110 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e2738;
+    color: #e0e0e0;
+    padding: 20px;
+    margin: 0;
+}
+.dashboard {
+    display: grid;
+    grid-template-columns: 80px 1fr 300px;
+    gap: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 3%;
+    padding-left: 3%;
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #e0e0e0;
+}
+.container {
+    background-color: #112e4c;
+    border-radius: 10px;
+    padding: 20px;
+    opacity: 80%;
+    color: #e0e0e0;
+    
+}
+.forecast {
+    display: flex;
+    justify-content: space-between;
+}
+.forecast-item {
+    text-align: center;
+    color: #ffffff;
+}
+.conditions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.weekly-forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #e0e0e0;
+}
+.forecast-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.h2, .h3 {
+    color: #ffffff; /* Pure white for headers */
+}
+.temperature {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff; /* Pure white for main temperature */
+}
+.h2{
+    color: #ffffff;
+}
+.sidebar {
+    background-color: #112e4c;
+    border-radius: 10px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-left: 3%;
+    max-width: 100px;
+    opacity: 80%;
+
+}
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #4a5568;
+    border-radius: 50%;
+}
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a4b5e;
+    color: #e0e0e0;
+}
+
+.weather-container {
+    position: relative;
+    padding-top: 40px; 
+    padding-right: 5%px;
+}
+.condition-icon {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.weather-info {
+    /* Adjust as needed to fit your design */
+}
