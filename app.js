@@ -1,10 +1,4 @@
-
-document.querySelector('form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  searchData();
-});
-
-  function searchData(){
+ function searchData(){
 
       let userInput = document.getElementById("txtInput").value;
       console.log(userInput);
@@ -16,6 +10,12 @@ document.querySelector('form').addEventListener('submit', function(e) {
       let humidity = document.getElementById("humidity");
       let wind = document.getElementById("wind");
       let uv = document.getElementById("uv");
+      let sixamtemp = document.getElementById("sixamtemp");
+      let nineamtemp = document.getElementById("nineamtemp");
+      let twlpmtemp = document.getElementById("twlpmtemp");
+      let threepmtemp = document.getElementById("threepmtemp");
+      let sixpmtemp = document.getElementById("sixpmtemp");
+      let ninepmtemp = document.getElementById("ninepmtemp");
 
 
       fetch(`http://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
@@ -26,7 +26,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         return res.json();
     })
     .then(data => {
-      console.log(data);
+      //console.log(data);
       country.innerText = data.location.name;
       temp.innerText = `${data.current.temp_c}°C / ${data.current.temp_f}°F`;
       conditionIcon.src = `https:${data.current.condition.icon}`; // Add this line
@@ -44,38 +44,32 @@ document.querySelector('form').addEventListener('submit', function(e) {
     conditionIcon.src = "";
 });
 
-updateHourlyForecast();
+fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
+      .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    })
 
-     
-          }
+    .then(data =>{
 
-          function updateHourlyForecast(data) {
-            const hours = [6, 9, 12, 15, 18, 21]; // 6 AM, 9 AM, 12 PM, 3 PM, 6 PM, 9 PM
-            const currentHour = new Date().getHours();
-            
-            hours.forEach((hour, index) => {
-              const forecastHour = (currentHour + index * 3) % 24;
-              const forecastData = data.forecast.forecastday[0].hour[forecastHour];
-              
-              const temperature = Math.round(forecastData.temp_c);
-              document.getElementById(`${hour}amtemp`).textContent = `${temperature}°C`;
-            });
-          }
-          
-          // Usage:
-          fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
-            .then(res => {
-              if (!res.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return res.json();
-            })
-            .then(data => {
-              updateHourlyForecast(data);
-            })
-            .catch(error => {
-              console.error('There was a problem with the fetch operation:', error);
-            });
+      sixamtemp.innerText = data.forecast.forecastday[0].hour[6].temp_c
+      nineamtemp.innerText = data.forecast.forecastday[0].hour[9].temp_c
+      twlpmtemp.innerText = data.forecast.forecastday[0].hour[12].temp_c
+      threepmtemp.innerText = data.forecast.forecastday[0].hour[15].temp_c
+      sixpmtemp.innerText = data.forecast.forecastday[0].hour[18].temp_c
+      ninepmtemp.innerText = data.forecast.forecastday[0].hour[21].temp_c
+      
+      
+      
+    })
+   
 
+
+
+      }
+
+        
           
     
