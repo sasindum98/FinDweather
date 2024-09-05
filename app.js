@@ -16,6 +16,12 @@
       let threepmtemp = document.getElementById("threepmtemp");
       let sixpmtemp = document.getElementById("sixpmtemp");
       let ninepmtemp = document.getElementById("ninepmtemp");
+      let conditionIcon1 = document.getElementById("conditionIcon1");
+      let conditionIcon2 = document.getElementById("conditionIcon2");
+      let conditionIcon3 = document.getElementById("conditionIcon3");
+      let conditionIcon4 = document.getElementById("conditionIcon4");
+      let conditionIcon5 = document.getElementById("conditionIcon5");
+      let conditionIcon6 = document.getElementById("conditionIcon6");
 
 
       fetch(`http://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
@@ -29,7 +35,7 @@
       //console.log(data);
       country.innerText = data.location.name;
       temp.innerText = `${data.current.temp_c}°C / ${data.current.temp_f}°F`;
-      conditionIcon.src = `https:${data.current.condition.icon}`; // Add this line
+      conditionIcon.src = `https:${data.current.condition.icon}`; 
        // conditionIcon.alt = data.current.condition.text;
         realFeel.innerText = data.current.condition.text
         humidity.innerText = data.current.humidity
@@ -42,6 +48,7 @@
     country.innerText = "Error fetching data";
     temp.innerText = "N/A";
     conditionIcon.src = "";
+    conditionIcon1.src = "";
 });
 
 fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
@@ -54,12 +61,20 @@ fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df49209547252524
 
     .then(data =>{
 
-      sixamtemp.innerText = data.forecast.forecastday[0].hour[6].temp_c
-      nineamtemp.innerText = data.forecast.forecastday[0].hour[9].temp_c
-      twlpmtemp.innerText = data.forecast.forecastday[0].hour[12].temp_c
-      threepmtemp.innerText = data.forecast.forecastday[0].hour[15].temp_c
-      sixpmtemp.innerText = data.forecast.forecastday[0].hour[18].temp_c
-      ninepmtemp.innerText = data.forecast.forecastday[0].hour[21].temp_c
+      sixamtemp.innerText = `${data.forecast.forecastday[0].hour[6].temp_c}°C`
+      nineamtemp.innerText = `${data.forecast.forecastday[0].hour[9].temp_c}°C`
+      twlpmtemp.innerText = `${data.forecast.forecastday[0].hour[12].temp_c}°C`
+      threepmtemp.innerText = `${data.forecast.forecastday[0].hour[15].temp_c}°C`
+      sixpmtemp.innerText = `${data.forecast.forecastday[0].hour[18].temp_c}°C`
+      ninepmtemp.innerText = `${data.forecast.forecastday[0].hour[21].temp_c}°C`
+      conditionIcon1.src = `https:${data.forecast.forecastday[0].hour[6].condition.icon}`;
+      conditionIcon2.src = `https:${data.forecast.forecastday[0].hour[9].condition.icon}`;
+      conditionIcon3.src = `https:${data.forecast.forecastday[0].hour[12].condition.icon}`;
+      conditionIcon4.src = `https:${data.forecast.forecastday[0].hour[15].condition.icon}`;
+      conditionIcon5.src = `https:${data.forecast.forecastday[0].hour[18].condition.icon}`;
+      conditionIcon6.src = `https:${data.forecast.forecastday[0].hour[21].condition.icon}`;
+
+
       
       
       
