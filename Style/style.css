@@ -8,21 +8,19 @@ body {
 }
 .dashboard {
     display: grid;
-    grid-template-columns: 80px 1fr 300px;
+    grid-template-columns: 80px 1fr 400px;
     gap: 20px;
     max-width: 1500px;
     margin: 0 auto;
     margin-top: 3%;
     padding-left: 0%;
     z-index: 1;
-
-
     
 }
 .main-content {
-    display: flex;
+    
     flex-direction: column;
-    gap: 20px;
+    gap: 20px;display: flex;
     color: #e0e0e0;
 }
 .container {
@@ -39,6 +37,7 @@ body {
 
     
 }
+
 .navbar{
     background-color: #007bff;
     background: linear-gradient(
@@ -70,12 +69,24 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+.weekly-forecast-container {
+    display: flex;
+    gap: 20px;
+}
 .weekly-forecast {
     display: flex;
     flex-direction: column;
     gap: 10px;
     color: #e0e0e0;
 }
+.forecast-map {
+    flex: 1;
+    min-height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
 .forecast-day {
     display: flex;
     justify-content: space-between;
@@ -119,10 +130,15 @@ body {
 
 }
 .sidebar-icon {
-    width: 24px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     background-color: #4a5568;
     border-radius: 50%;
+    position: relative;
+    gap: 10px;
+    padding-top: 1px;
+    
+    padding-left: 5%;
 }
 .search-bar {
     width: 100%;
@@ -132,12 +148,16 @@ body {
     background-color: #3a4b5e;
     color: #e0e0e0;
 }
-
+.btn{
+    border-radius: 5%;
+}
 .weather-container {
     position: relative;
     padding-top: 40px; 
-    padding-right: 5%px;
+    padding-right: 5px;
+   
 }
+
 .condition-icon {
     position: absolute;
     top: 40px;
@@ -156,4 +176,12 @@ body {
 }
 .weather-info {
     /* Adjust as needed to fit your design */
+}
+.cicons{
+    position: relative;
+    top: 0px;
+    right: 20px;
+    left: 2px;
+    width: 60px;
+    height: 60px;
 }
