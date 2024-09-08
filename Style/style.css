@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #1e2738;
@@ -39,7 +38,7 @@ body {
 }
 
 .navbar{
-    background-color: #007bff;
+  
     background: linear-gradient(
         to top, rgb(0,0,0,0.15),
         rgb(255,255,255,0.15));
@@ -47,7 +46,7 @@ body {
     backdrop-filter: blur(100px);
 }
 .navbar-brand{
-    color: #ffffff; /* Pure white for headers */
+    color: #ffffff; 
     font-size: 2em;
     font-weight: bold;
 }
@@ -55,6 +54,7 @@ body {
     color: #ffffff;
     
 }
+
 
 .forecast {
     display: flex;
@@ -69,22 +69,14 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-.weekly-forecast-container {
-    display: flex;
-    gap: 20px;
-}
+
 .weekly-forecast {
     display: flex;
     flex-direction: column;
     gap: 10px;
     color: #e0e0e0;
 }
-.forecast-map {
-    flex: 1;
-    min-height: 300px;
-    border-radius: 8px;
-    overflow: hidden;
-}
+
 
 
 .forecast-day {
@@ -93,12 +85,12 @@ body {
     align-items: center;
 }
 .h2{
-    color: #ffffff; /* Pure white for headers */
+    color: #ffffff; 
     font-size: 2em;
     font-weight: bold;
 }
 .h3 {
-    color: #ffffff; /* Pure white for headers */
+    color: #ffffff; 
     font-size: 2em;
     font-weight: bold;
 }
@@ -110,7 +102,7 @@ body {
 .temperature {
     font-size: 2em;
     font-weight: bold;
-    color: #ffffff; /* Pure white for main temperature */
+    color: #ffffff; 
 }
 
 .sidebar {
@@ -148,9 +140,7 @@ body {
     background-color: #3a4b5e;
     color: #e0e0e0;
 }
-.btn{
-    border-radius: 5%;
-}
+
 .weather-container {
     position: relative;
     padding-top: 40px; 
@@ -174,9 +164,8 @@ body {
     width: 80px;
     height: 80px;
 }
-.weather-info {
-    /* Adjust as needed to fit your design */
-}
+
+
 .cicons{
     position: relative;
     top: 0px;
@@ -184,4 +173,69 @@ body {
     left: 2px;
     width: 60px;
     height: 60px;
+}
+
+.map-container{
+
+    width: 350px;
+    height: 300px;
+    display:grid;
+    margin-top: 5px;
+}
+@media (max-width: 1200px) {
+    .dashboard {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .seven-day-forecast {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+    .map-container{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        display:grid;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        max-width: none;
+        justify-content: center;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .forecast-item {
+        flex-basis: calc(33.333% - 10px);
+    }
+    .map-container{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        display:grid;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .forecast-item {
+        flex-basis: calc(50% - 10px);
+    }
+    .map-container{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        display:grid;
+        margin-top: 5px;
+    }
 }

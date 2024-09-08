@@ -5,9 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.log("Geolocation is not supported by this browser.");
   }
+
+
+const mapButton = document.querySelector('.sidebar-icon[src="img/google-maps.png"]');
+  const historyButton = document.querySelector('.sidebar-icon[src="img/History.png"]');
+
+  if (mapButton) {
+    mapButton.addEventListener('click', function() {
+      scrollToSection('map');
+    });
+  }
+
+  if (historyButton) {
+    historyButton.addEventListener('click', function() {
+      scrollToSection('last-5-day-forecast');
+    });
+  }
 });
 
 let firstPart;
+
 
 function showPosition(position) {
   let latitude = position.coords.latitude;
@@ -39,8 +56,6 @@ function showPosition(position) {
     
 }
 
-
-
 function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
@@ -60,6 +75,14 @@ function showError(error) {
 
 let map;
 
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 0, lng: 0},
@@ -76,7 +99,7 @@ function updateMap(lat, lng) {
     });
 }
 
-// Call this when the page loads
+
 document.addEventListener('DOMContentLoaded', initMap);
 
 function searchDataOnAction(){
@@ -259,9 +282,7 @@ fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df49209547252524
     fetch(`http://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
     .then(res => res.json())
     .then(data => {
-        // ... your existing code to update weather info ...
-
-        // Update the map with the new location
+        
         updateMap(data.location.lat, data.location.lon);
     })
     .catch(error => {
@@ -271,8 +292,27 @@ fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df49209547252524
 
       }
 
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
       
+      document.addEventListener('DOMContentLoaded', function() {
 
-        
-          
-    
+        const mapButton = document.querySelector('.sidebar-icon[src="img/google-maps.png"]');
+        const historyButton = document.querySelector('.sidebar-icon[src="img/History.png"]');
+      
+        if (mapButton) {
+          mapButton.addEventListener('click', function() {
+            scrollToSection('mapSection');
+          });
+        }
+      
+        if (historyButton) {
+          historyButton.addEventListener('click', function() {
+            scrollToSection('lastFiveDayForecast');
+          });
+        }
+      });
