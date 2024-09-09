@@ -120,7 +120,7 @@ function getLastFiveDaysWeather(userInput) {
     date.setDate(today.getDate() - i);
     const formattedDate = date.toISOString().split('T')[0];
     
-    const url = `http://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${userInput}&dt=${formattedDate}`;
+    const url = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${userInput}&dt=${formattedDate}`;
     
     fetch(url)
       .then(response => response.json())
@@ -191,7 +191,7 @@ function getLastFiveDaysWeather(userInput) {
       
 
 
-      fetch(`http://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
+      fetch(`https://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
       .then(res => {
         if (!res.ok) {
             throw new Error('Network response was not ok');
@@ -222,7 +222,7 @@ function getLastFiveDaysWeather(userInput) {
     conditionIcon1.src = "";
 });
 
-fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
+fetch(`https://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
       .then(res => {
         if (!res.ok) {
             throw new Error('Network response was not ok');
@@ -248,7 +248,7 @@ fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df49209547252524
       
     })
 
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}&days=8`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df492095472525240309&q=${userInput}&days=8`)
       .then(res => {
         if (!res.ok) {
             throw new Error('Network response was not ok');
@@ -279,7 +279,7 @@ fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d6a73dda4df49209547252524
 
     })
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=0d6a73dda4df492095472525240309&q=${userInput}`)
     .then(res => res.json())
     .then(data => {
         
